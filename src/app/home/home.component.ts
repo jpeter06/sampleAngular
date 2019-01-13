@@ -24,6 +24,5 @@ export class HomeComponent implements OnInit {
 
   firstClick(){
     this.h1Style=!this.h1Style;
-    this.dataService.firtClick();
   }
 }
