@@ -1,0 +1,13 @@
+<div class="p-grid">
+  <div class="p-col-6">imperpolation</div>
+  <div class="p-col-6">{{valor}}</div>
+  <div class="p-col-6">property binding (color)</div>
+  <div class="p-col-6" [class]="color">{{color}}</div>
+  <div class="p-col-6" (click)="changeColor2()">event binding (color2)</div>
+  <div class="p-col-6" [class]="color2">{{color2}}</div>
+  <div class="p-col-6">two-way data binding</div>
+  <div class="p-col-6">
+      <input [(ngModel)]="entrada">{{entrada}}</div>
+  <div class="p-col-6" >directiva *ngIf color2==naranja</div>
+      <div class="p-col-6" *ngIf="color2==='naranja'">naranja</div>
+    </div>

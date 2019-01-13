@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+
 import { HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +16,10 @@ import { TableModule } from 'primeng/table';
 import { GrowlModule } from 'primeng/growl';
 import { FormComponent } from './form/form.component';
 
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { TemplateComponent } from './template/template.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,13 +28,15 @@ import { FormComponent } from './form/form.component';
     ContactComponent,
     HomeComponent,
     PrimetableComponent,
-    FormComponent
+    FormComponent,
+    TemplateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
     TableModule,
     GrowlModule
   ],
