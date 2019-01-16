@@ -7,6 +7,7 @@ import { DataService } from '../data.service';
   templateUrl: './primetable.component.html',
   styleUrls: ['./primetable.component.css']
 })
+
 export class PrimetableComponent implements OnInit {
 
   users: Object;
@@ -17,7 +18,6 @@ export class PrimetableComponent implements OnInit {
   ngOnInit() {
     this.data.getUsers().subscribe(data => {
       this.users = data;
-      console.log("data",data);
     }); 
   }
 
