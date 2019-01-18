@@ -1,27 +1,62 @@
 
 <h2>PrimeTable</h2>
-<p-growl [(value)]="msgs"></p-growl>
-<p-table *ngIf="users" [value]="users.data" (onRowSelect)="onRowSelect($event)"
-selectionMode="single" [(selection)]="selUser" dataKey="id">
-	<ng-template pTemplate="header">
-		<tr>
-			<th>id</th>
-			<th>first_name</th>
-			<th>last_name</th>
-		</tr>
-	</ng-template>
-	<ng-template pTemplate="body" let-user>
-		<tr [pSelectableRow]="user">
-			<td>{{user.id}}</td>
-			<td>{{user.first_name}}</td>
-			<td>{{user.last_name}}</td>
-		</tr>
-	</ng-template>
-		<ng-template pTemplate="summary">
-			<div style="text-align: left">
-				Selected user: {{selUser ? selUser.id + ' - ' +
-        selUser.first_name + ' - ' + selUser.last_name :
-				'none'}}
-			</div>
-		</ng-template>
-</p-table>
+<p-tabView>
+    <p-tabPanel header="ejemplo">
+		<p-growl [(value)]="msgs"></p-growl>
+		<p-table *ngIf="users" [value]="users.data" (onRowSelect)="onRowSelect($event)"
+		selectionMode="single" [(selection)]="selUser" dataKey="id">
+			<ng-template pTemplate="header">
+				<tr>
+					<th>id</th>
+					<th>first_name</th>
+					<th>last_name</th>
+				</tr>
+			</ng-template>
+			<ng-template pTemplate="body" let-user>
+				<tr [pSelectableRow]="user">
+					<td>{{user.id}}</td>
+					<td>{{user.first_name}}</td>
+					<td>{{user.last_name}}</td>
+				</tr>
+			</ng-template>
+				<ng-template pTemplate="summary">
+					<div style="text-align: left">
+						Selected user: {{selUser ? selUser.id + ' - ' +
+				selUser.first_name + ' - ' + selUser.last_name :
+						'none'}}
+					</div>
+				</ng-template>
+		</p-table>
+    </p-tabPanel>
+    <p-tabPanel header="Codigo">
+		<pre>
+			<code class="language-markup" ngNonBindable pCode>
+				&lt;p-table *ngIf=&quot;users&quot; [value]=&quot;users.data&quot; (onRowSelect)=&quot;onRowSelect($event)&quot;
+				selectionMode=&quot;single&quot; [(selection)]=&quot;selUser&quot; dataKey=&quot;id&quot;&gt;
+					&lt;ng-template pTemplate=&quot;header&quot;&gt;
+						&lt;tr&gt;
+							&lt;th&gt;id&lt;/th&gt;
+							&lt;th&gt;first_name&lt;/th&gt;
+							&lt;th&gt;last_name&lt;/th&gt;
+						&lt;/tr&gt;
+					&lt;/ng-template&gt;
+					&lt;ng-template pTemplate=&quot;body&quot; let-user&gt;
+						&lt;tr [pSelectableRow]=&quot;user&quot;&gt;
+							&lt;td&gt;{{user.id}}&lt;/td&gt;
+							&lt;td&gt;{{user.first_name}}&lt;/td&gt;
+							&lt;td&gt;{{user.last_name}}&lt;/td&gt;
+						&lt;/tr&gt;
+					&lt;/ng-template&gt;
+						&lt;ng-template pTemplate=&quot;summary&quot;&gt;
+							&lt;div style=&quot;text-align: left&quot;&gt;
+								Selected user: {{selUser ? selUser.id + &apos; - &apos; +
+						selUser.first_name + &apos; - &apos; + selUser.last_name :
+								&apos;none&apos;}}
+							&lt;/div&gt;
+						&lt;/ng-template&gt;
+				&lt;/p-table&gt;
+			</code>
+		</pre>
+    </p-tabPanel>
+</p-tabView>
+

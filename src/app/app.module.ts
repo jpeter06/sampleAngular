@@ -14,10 +14,18 @@ import { PrimetableComponent } from './primetable/primetable.component';
 
 import { TableModule } from 'primeng/table';
 import { GrowlModule } from 'primeng/growl';
+import {TabViewModule} from 'primeng/tabview';
+import {CodeHighlighterModule} from 'primeng/codehighlighter';
+import {PanelModule} from 'primeng/panel';
+import {ToastModule} from 'primeng/toast';
+import {MessageModule} from 'primeng/message';
+import {DropdownModule} from 'primeng/dropdown';
+import {ButtonModule} from 'primeng/button';
 import { FormComponent } from './form/form.component';
 
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TemplateComponent } from './template/template.component';
 
 @NgModule({
@@ -38,7 +46,15 @@ import { TemplateComponent } from './template/template.component';
     ReactiveFormsModule,
     FormsModule,
     TableModule,
-    GrowlModule
+    GrowlModule,
+    TabViewModule,
+    CodeHighlighterModule,
+    PanelModule,
+    ToastModule,
+    MessageModule,
+    DropdownModule,
+    ButtonModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

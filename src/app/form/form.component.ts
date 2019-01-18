@@ -33,7 +33,7 @@ export class FormComponent implements OnInit {
 
   onSubmit(value: string) {
       this.submitted = true;
-      this.messageService.add({severity:'info', summary:'Success', detail:'Form Submitted'});
+      this.messageService.add({severity:'info', summary:'Success', detail:'Form Submitted2'});
   }
 
   get diagnostic() { return JSON.stringify(this.userform.value); }

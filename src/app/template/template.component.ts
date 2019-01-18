@@ -20,5 +20,5 @@ export class TemplateComponent implements OnInit {
   changeColor2(){
     this.color2= this.color2=="naranja"?"rojo":"naranja";
   }
-
+  childCall( val){ alert("Cok:"+val+" "+this.color)}
 }
