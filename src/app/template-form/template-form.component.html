@@ -1,0 +1,86 @@
+<h2>Reactive Form</h2>
+<p-tabView>
+    <p-tabPanel header="ejemplo">
+      <p-toast [style]="{marginTop: '80px'}"></p-toast>
+
+      <form  #f="ngForm" (ngSubmit)="onSubmit()">
+          <p-panel header="Validate">
+              <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+                  <div class="ui-grid-row">
+                      <div class="ui-grid-col-2">
+                          Texto *:
+                      </div>
+                      <div class="ui-grid-col-6">
+                          <input pInputText type="text" [(ngModel)]="formulario.texto" required ngModel
+                            placeholder="Required" name="texto" pInputText/>
+                      </div>
+                      <div class="ui-grid-col-4">
+                     </div>
+                  </div>
+                  <div class="ui-grid-row">
+                      <div class="ui-grid-col-2">
+                          Fecha *:
+                      </div>
+                      <div class="ui-grid-col-6">
+                          <p-calendar  [(ngModel)]="formulario.fecha" required ngModel name="fecha"></p-calendar>
+                      </div>
+                      <div class="ui-grid-col-4">
+                      </div>
+                  </div>
+                  <div class="ui-grid-row">
+                      <div class="ui-grid-col-2">
+                          marca *:
+                      </div>
+                      <div class="ui-grid-col-6">
+                          <p-dropdown [options]="marcas" name="marca"
+                             [(ngModel)]="formulario.marca" [autoWidth]="false"  required ngModel
+                          class="ng-tns-c9-93 ui-inputwrapper-filled ng-untouched ng-pristine ng-invalid"></p-dropdown>
+                      </div>
+                      <div class="ui-grid-col-4">
+                        </div>
+                  </div>
+                  <div class="ui-grid-row">
+                      <div class="ui-grid-col-2">
+                          coche *:
+                      </div>
+                      <div class="ui-grid-col-6">
+                          <p-dropdown [options]="coches" name="coche"  required ngModel
+                           [(ngModel)]="formulario.coche" [autoWidth]="false"
+                          class="ng-tns-c9-93 ui-inputwrapper-filled ng-untouched ng-pristine ng-invalid"></p-dropdown>
+                      </div>
+                      <div class="ui-grid-col-4">
+                      </div>
+                  </div>
+                  <div class="ui-grid-row">
+                      <div class="ui-grid-col-2"></div>
+                      <div class="ui-grid-col-6">
+                          <button pButton type="submit" label="Submit" [disabled]="!f.valid"
+                           class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"></button>
+                      </div>
+                      <div class="ui-grid-col-4"></div>
+                  </div>
+                  <div style="text-align:center;margin-top:20px" *ngIf="submitted">
+                      Form Submitted
+                      <br>
+                      {{diagnostic}}
+                  </div>
+              </div>
+          </p-panel>
+      </form>
+    </p-tabPanel>
+  
+    <p-tabPanel header="Codigo html">
+        <pre>
+          <code class="language-markup" ngNonBindable pCode>
+
+          </code>
+        </pre>
+        </p-tabPanel>
+    <p-tabPanel header="Codigo TS">
+        <pre>
+          <code class="language-js" ngNonBindable pCode>
+             
+          </code>
+        </pre>
+        </p-tabPanel>
+</p-tabView>

@@ -29,6 +29,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TemplateComponent } from './template/template.component';
+import { TemplateFormComponent } from './template-form/template-form.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { TemplateComponent } from './template/template.component';
     HomeComponent,
     PrimetableComponent,
     FormComponent,
-    TemplateComponent
+    TemplateComponent,
+    TemplateFormComponent
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,7 @@ import { ContactComponent } from './contact/contact.component';
 import { PrimetableComponent } from './primetable/primetable.component';
 import { FormComponent } from './form/form.component';
 import { TemplateComponent } from './template/template.component';
+import { TemplateFormComponent } from './template-form/template-form.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:'contact',component:ContactComponent},
   {path:'primetable',component:PrimetableComponent},
   {path:'form',component:FormComponent},
+  {path:'templateForm',component:TemplateFormComponent},
   {path:'template',component:TemplateComponent}
 ];
 
