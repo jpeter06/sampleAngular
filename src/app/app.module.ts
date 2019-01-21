@@ -9,9 +9,7 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
 
-import { ReactiveFormsModule} from '@angular/forms';
 import { PrimetableComponent } from './primetable/primetable.component';
-
 import { TableModule } from 'primeng/table';
 import { GrowlModule } from 'primeng/growl';
 import {TabViewModule} from 'primeng/tabview';
@@ -21,7 +19,11 @@ import {ToastModule} from 'primeng/toast';
 import {MessageModule} from 'primeng/message';
 import {DropdownModule} from 'primeng/dropdown';
 import {ButtonModule} from 'primeng/button';
+import {CalendarModule} from 'primeng/calendar';
+import {InputTextModule} from 'primeng/inputtext';
+
 import { FormComponent } from './form/form.component';
+import { ReactiveFormsModule} from '@angular/forms';
 
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -54,6 +56,8 @@ import { TemplateComponent } from './template/template.component';
     MessageModule,
     DropdownModule,
     ButtonModule,
+    CalendarModule,
+    InputTextModule,
     BrowserAnimationsModule
   ],
   providers: [],

@@ -1,4 +1,4 @@
-<h2>PrimeForm</h2>
+<h2>Reactive PrimeForm</h2>
 <p-tabView>
     <p-tabPanel header="ejemplo">
       <p-toast [style]="{marginTop: '80px'}"></p-toast>
@@ -8,61 +8,52 @@
               <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
                   <div class="ui-grid-row">
                       <div class="ui-grid-col-2">
-                          First Name *:
+                          Texto *:
                       </div>
                       <div class="ui-grid-col-6">
-                          <input pInputText type="text" formControlName="firstname" placeholder="Required"
-                          class="ng-untouched ng-pristine ng-invalid ui-inputtext ui-corner-all ui-state-default ui-widget"/>
+                          <input pInputText type="text" formControlName="texto" placeholder="Required" pInputText/>
                       </div>
                       <div class="ui-grid-col-4">
-                          <p-message severity="error" text="Firstname is required" *ngIf="!userform.controls['firstname'].valid&&userform.controls['firstname'].dirty"></p-message>
+                          <p-message severity="error" text="Texto is required (6 caracteres mínimo)" 
+                            *ngIf="!userform.controls['texto'].valid&&userform.controls['texto'].dirty"></p-message>
                       </div>
                   </div>
                   <div class="ui-grid-row">
                       <div class="ui-grid-col-2">
-                          Last Name *:
+                          Fecha *:
                       </div>
                       <div class="ui-grid-col-6">
-                          <input pInputText type="text" formControlName="lastname" placeholder="Required"
-                          class="ng-untouched ng-pristine ng-invalid ui-inputtext ui-corner-all ui-state-default ui-widget"/>
+                          <p-calendar formControlName="fecha"></p-calendar>
                       </div>
                       <div class="ui-grid-col-4">
-                          <p-message severity="error" text="Lastname is required" *ngIf="!userform.controls['lastname'].valid&&userform.controls['lastname'].dirty"></p-message>
+                      <p-message severity="error" [text]="userform.controls['fecha'].errors['required'] ? 'Date is required (dd/MM/YYYY)' : ''" 
+                              *ngIf="!userform.controls['fecha'].valid&&userform.controls['fecha'].dirty"></p-message>
                       </div>
                   </div>
                   <div class="ui-grid-row">
                       <div class="ui-grid-col-2">
-                          Password *:
+                          marca *:
                       </div>
                       <div class="ui-grid-col-6">
-                          <input pInputText type="password" formControlName="password" placeholder="Required - Min(6)"
-                          class="ng-untouched ng-pristine ng-invalid ui-inputtext ui-corner-all ui-state-default ui-widget"/>
-                      </div>
-                      <div class="ui-grid-col-4">
-                      <p-message severity="error" [text]="userform.controls['password'].errors['required'] ? 'Password is required' : userform.controls['password'].errors['minlength'] ? 'Must be longer than 6 characters' : ''" 
-                              *ngIf="!userform.controls['password'].valid&&userform.controls['password'].dirty"></p-message>
-                      </div>
-                  </div>
-                  <div class="ui-grid-row">
-                      <div class="ui-grid-col-2">
-                          Description:
-                      </div>
-                      <div class="ui-grid-col-6">
-                          <textarea pInputTextarea type="text" formControlName="description"
-                          class="ng-untouched ng-pristine ng-valid ui-inputtext ui-corner-all ui-state-default ui-widget"></textarea>
-                      </div>
-                      <div class="ui-grid-col-4"></div>
-                  </div>
-                  <div class="ui-grid-row">
-                      <div class="ui-grid-col-2">
-                          Gender *:
-                      </div>
-                      <div class="ui-grid-col-6">
-                          <p-dropdown [options]="genders" formControlName="gender" [autoWidth]="false"
+                          <p-dropdown [options]="marcas" formControlName="marca" [autoWidth]="false"
                           class="ng-tns-c9-93 ui-inputwrapper-filled ng-untouched ng-pristine ng-invalid"></p-dropdown>
                       </div>
                       <div class="ui-grid-col-4">
-                          <p-message severity="error" text="Gender is required" *ngIf="!userform.controls['gender'].valid&&userform.controls['gender'].dirty"></p-message>
+                          <p-message severity="error" text="Marca is required" 
+                          *ngIf="!userform.controls['marca'].valid&&userform.controls['marca'].dirty"></p-message>
+                      </div>
+                  </div>
+                  <div class="ui-grid-row">
+                      <div class="ui-grid-col-2">
+                          coche *:
+                      </div>
+                      <div class="ui-grid-col-6">
+                          <p-dropdown [options]="coches" formControlName="coche" [autoWidth]="false"
+                          class="ng-tns-c9-93 ui-inputwrapper-filled ng-untouched ng-pristine ng-invalid"></p-dropdown>
+                      </div>
+                      <div class="ui-grid-col-4">
+                          <p-message severity="error" text="coche is required" 
+                          *ngIf="!userform.controls['coche'].valid&&userform.controls['coche'].dirty"></p-message>
                       </div>
                   </div>
                   <div class="ui-grid-row">
@@ -86,133 +77,137 @@
     <p-tabPanel header="Codigo html">
         <pre>
           <code class="language-markup" ngNonBindable pCode>
-            &lt;p-toast [style]=&quot;&#123;marginTop: &apos;80px&apos;}&quot;&gt;&lt;/p-toast&gt;
-    
-            &lt;form [formGroup]=&quot;userform&quot; (ngSubmit)=&quot;onSubmit(userform.value)&quot;&gt;
-                &lt;p-panel header=&quot;Validate&quot;&gt;
-                    &lt;div class=&quot;ui-grid ui-grid-responsive ui-grid-pad ui-fluid&quot; style=&quot;margin: 10px 0px&quot;&gt;
-                        &lt;div class=&quot;ui-grid-row&quot;&gt;
-                            &lt;div class=&quot;ui-grid-col-2&quot;&gt;
-                                First Name *:
-                            &lt;/div&gt;
-                            &lt;div class=&quot;ui-grid-col-6&quot;&gt;
-                                &lt;input pInputText type=&quot;text&quot; formControlName=&quot;firstname&quot; placeholder=&quot;Required&quot;
-                                class=&quot;ng-untouched ng-pristine ng-invalid ui-inputtext ui-corner-all ui-state-default ui-widget&quot;/&gt;
-                            &lt;/div&gt;
-                            &lt;div class=&quot;ui-grid-col-4&quot;&gt;
-                                &lt;p-message severity=&quot;error&quot; text=&quot;Firstname is required&quot; *ngIf=&quot;!userform.controls[&apos;firstname&apos;].valid&amp;&amp;userform.controls[&apos;firstname&apos;].dirty&quot;&gt;&lt;/p-message&gt;
-                            &lt;/div&gt;
-                        &lt;/div&gt;
-                        &lt;div class=&quot;ui-grid-row&quot;&gt;
-                            &lt;div class=&quot;ui-grid-col-2&quot;&gt;
-                                Last Name *:
-                            &lt;/div&gt;
-                            &lt;div class=&quot;ui-grid-col-6&quot;&gt;
-                                &lt;input pInputText type=&quot;text&quot; formControlName=&quot;lastname&quot; placeholder=&quot;Required&quot;
-                                class=&quot;ng-untouched ng-pristine ng-invalid ui-inputtext ui-corner-all ui-state-default ui-widget&quot;/&gt;
-                            &lt;/div&gt;
-                            &lt;div class=&quot;ui-grid-col-4&quot;&gt;
-                                &lt;p-message severity=&quot;error&quot; text=&quot;Lastname is required&quot; *ngIf=&quot;!userform.controls[&apos;lastname&apos;].valid&amp;&amp;userform.controls[&apos;lastname&apos;].dirty&quot;&gt;&lt;/p-message&gt;
-                            &lt;/div&gt;
-                        &lt;/div&gt;
-                        &lt;div class=&quot;ui-grid-row&quot;&gt;
-                            &lt;div class=&quot;ui-grid-col-2&quot;&gt;
-                                Password *:
-                            &lt;/div&gt;
-                            &lt;div class=&quot;ui-grid-col-6&quot;&gt;
-                                &lt;input pInputText type=&quot;password&quot; formControlName=&quot;password&quot; placeholder=&quot;Required - Min(6)&quot;
-                                class=&quot;ng-untouched ng-pristine ng-invalid ui-inputtext ui-corner-all ui-state-default ui-widget&quot;/&gt;
-                            &lt;/div&gt;
-                            &lt;div class=&quot;ui-grid-col-4&quot;&gt;
-                            &lt;p-message severity=&quot;error&quot; [text]=&quot;userform.controls[&apos;password&apos;].errors[&apos;required&apos;] ? &apos;Password is required&apos; : userform.controls[&apos;password&apos;].errors[&apos;minlength&apos;] ? &apos;Must be longer than 6 characters&apos; : &apos;&apos;&quot; 
-                                    *ngIf=&quot;!userform.controls[&apos;password&apos;].valid&amp;&amp;userform.controls[&apos;password&apos;].dirty&quot;&gt;&lt;/p-message&gt;
-                            &lt;/div&gt;
-                        &lt;/div&gt;
-                        &lt;div class=&quot;ui-grid-row&quot;&gt;
-                            &lt;div class=&quot;ui-grid-col-2&quot;&gt;
-                                Description:
-                            &lt;/div&gt;
-                            &lt;div class=&quot;ui-grid-col-6&quot;&gt;
-                                &lt;textarea pInputTextarea type=&quot;text&quot; formControlName=&quot;description&quot;
-                                class=&quot;ng-untouched ng-pristine ng-valid ui-inputtext ui-corner-all ui-state-default ui-widget&quot;&gt;&lt;/textarea&gt;
-                            &lt;/div&gt;
-                            &lt;div class=&quot;ui-grid-col-4&quot;&gt;&lt;/div&gt;
-                        &lt;/div&gt;
-                        &lt;div class=&quot;ui-grid-row&quot;&gt;
-                            &lt;div class=&quot;ui-grid-col-2&quot;&gt;
-                                Gender *:
-                            &lt;/div&gt;
-                            &lt;div class=&quot;ui-grid-col-6&quot;&gt;
-                                &lt;p-dropdown [options]=&quot;genders&quot; formControlName=&quot;gender&quot; [autoWidth]=&quot;false&quot;
-                                class=&quot;ng-tns-c9-93 ui-inputwrapper-filled ng-untouched ng-pristine ng-invalid&quot;&gt;&lt;/p-dropdown&gt;
-                            &lt;/div&gt;
-                            &lt;div class=&quot;ui-grid-col-4&quot;&gt;
-                                &lt;p-message severity=&quot;error&quot; text=&quot;Gender is required&quot; *ngIf=&quot;!userform.controls[&apos;gender&apos;].valid&amp;&amp;userform.controls[&apos;gender&apos;].dirty&quot;&gt;&lt;/p-message&gt;
-                            &lt;/div&gt;
-                        &lt;/div&gt;
-                        &lt;div class=&quot;ui-grid-row&quot;&gt;
-                            &lt;div class=&quot;ui-grid-col-2&quot;&gt;&lt;/div&gt;
-                            &lt;div class=&quot;ui-grid-col-6&quot;&gt;
-                                &lt;button pButton type=&quot;submit&quot; label=&quot;Submit&quot; [disabled]=&quot;!userform.valid&quot;
-                                 class=&quot;ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only&quot;&gt;&lt;/button&gt;
-                            &lt;/div&gt;
-                            &lt;div class=&quot;ui-grid-col-4&quot;&gt;&lt;/div&gt;
-                        &lt;/div&gt;
-                        &lt;div style=&quot;text-align:center;margin-top:20px&quot; *ngIf=&quot;submitted&quot;&gt;
-                            Form Submitted
-                            &lt;br&gt;
-                            {{diagnostic}}
-                        &lt;/div&gt;
-                    &lt;/div&gt;
-                &lt;/p-panel&gt;
-            &lt;/form&gt;
+  &lt;p-toast [style]=&quot;&#123;marginTop: &apos;80px&apos;}&quot;&gt;&lt;/p-toast&gt;
+
+  &lt;form [formGroup]=&quot;userform&quot; (ngSubmit)=&quot;onSubmit(userform.value)&quot;&gt;
+      &lt;p-panel header=&quot;Validate&quot;&gt;
+          &lt;div class=&quot;ui-grid ui-grid-responsive ui-grid-pad ui-fluid&quot; style=&quot;margin: 10px 0px&quot;&gt;
+              &lt;div class=&quot;ui-grid-row&quot;&gt;
+                  &lt;div class=&quot;ui-grid-col-2&quot;&gt;
+                      Texto *:
+                  &lt;/div&gt;
+                  &lt;div class=&quot;ui-grid-col-6&quot;&gt;
+                      &lt;input pInputText type=&quot;text&quot; formControlName=&quot;texto&quot; placeholder=&quot;Required&quot; pInputText/&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;ui-grid-col-4&quot;&gt;
+                      &lt;p-message severity=&quot;error&quot; text=&quot;Texto is required (6 caracteres mínimo)&quot; 
+                        *ngIf=&quot;!userform.controls[&apos;texto&apos;].valid&amp;&amp;userform.controls[&apos;texto&apos;].dirty&quot;&gt;&lt;/p-message&gt;
+                  &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;ui-grid-row&quot;&gt;
+                  &lt;div class=&quot;ui-grid-col-2&quot;&gt;
+                      Fecha *:
+                  &lt;/div&gt;
+                  &lt;div class=&quot;ui-grid-col-6&quot;&gt;
+                      &lt;p-calendar formControlName=&quot;fecha&quot;&gt;&lt;/p-calendar&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;ui-grid-col-4&quot;&gt;
+                  &lt;p-message severity=&quot;error&quot; 
+                          [text]=&quot;userform.controls[&apos;fecha&apos;].errors[&apos;required&apos;] ? &apos;Date is required (dd/MM/YYYY)&apos; : &apos;&apos;&quot; 
+                          *ngIf=&quot;!userform.controls[&apos;fecha&apos;].valid&amp;&amp;userform.controls[&apos;fecha&apos;].dirty&quot;&gt;&lt;/p-message&gt;
+                  &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;ui-grid-row&quot;&gt;
+                  &lt;div class=&quot;ui-grid-col-2&quot;&gt;
+                      marca *:
+                  &lt;/div&gt;
+                  &lt;div class=&quot;ui-grid-col-6&quot;&gt;
+                      &lt;p-dropdown [options]=&quot;marcas&quot; formControlName=&quot;marca&quot; [autoWidth]=&quot;false&quot;
+                      class=&quot;ng-tns-c9-93 ui-inputwrapper-filled ng-untouched ng-pristine ng-invalid&quot;&gt;&lt;/p-dropdown&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;ui-grid-col-4&quot;&gt;
+                      &lt;p-message severity=&quot;error&quot; text=&quot;Marca is required&quot; 
+                      *ngIf=&quot;!userform.controls[&apos;marca&apos;].valid&amp;&amp;userform.controls[&apos;marca&apos;].dirty&quot;&gt;&lt;/p-message&gt;
+                  &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;ui-grid-row&quot;&gt;
+                  &lt;div class=&quot;ui-grid-col-2&quot;&gt;
+                      coche *:
+                  &lt;/div&gt;
+                  &lt;div class=&quot;ui-grid-col-6&quot;&gt;
+                      &lt;p-dropdown [options]=&quot;coches&quot; formControlName=&quot;coche&quot; [autoWidth]=&quot;false&quot;
+                      class=&quot;ng-tns-c9-93 ui-inputwrapper-filled ng-untouched ng-pristine ng-invalid&quot;&gt;&lt;/p-dropdown&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;ui-grid-col-4&quot;&gt;
+                      &lt;p-message severity=&quot;error&quot; text=&quot;coche is required&quot; 
+                      *ngIf=&quot;!userform.controls[&apos;coche&apos;].valid&amp;&amp;userform.controls[&apos;coche&apos;].dirty&quot;&gt;&lt;/p-message&gt;
+                  &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;ui-grid-row&quot;&gt;
+                  &lt;div class=&quot;ui-grid-col-2&quot;&gt;&lt;/div&gt;
+                  &lt;div class=&quot;ui-grid-col-6&quot;&gt;
+                      &lt;button pButton type=&quot;submit&quot; label=&quot;Submit&quot; [disabled]=&quot;!userform.valid&quot;
+                        class=&quot;ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only&quot;&gt;&lt;/button&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;ui-grid-col-4&quot;&gt;&lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div style=&quot;text-align:center;margin-top:20px&quot; *ngIf=&quot;submitted&quot;&gt;
+                  Form Submitted
+                  &lt;br&gt;
+                  {{diagnostic}}
+              &lt;/div&gt;
+          &lt;/div&gt;
           </code>
         </pre>
         </p-tabPanel>
     <p-tabPanel header="Codigo TS">
         <pre>
           <code class="language-js" ngNonBindable pCode>
-              import &quot;&#123; Component, OnInit } from &apos;@angular/core&apos;;
-              import &quot;&#123;Validators,FormControl,FormGroup,FormBuilder} from &apos;@angular/forms&apos;;
-              import &quot;&#123;MessageService, SelectItem} from &apos;primeng/api&apos;;
+              import &#123; Component, OnInit } from &apos;@angular/core&apos;;
+              import &#123;Validators,FormControl,FormGroup,FormBuilder} from &apos;@angular/forms&apos;;
+              import &#123;MessageService, SelectItem} from &apos;primeng/api&apos;;
               
-              @Component(&quot;&#123;
+              @Component(&#123;
                 selector: &apos;app-form&apos;,
                 templateUrl: &apos;./form.component.html&apos;,
                 styleUrls: [&apos;./form.component.css&apos;],
                 providers: [MessageService]
               })
-              export class FormComponent implements OnInit &quot;&#123;
+              export class FormComponent implements OnInit &#123;
                   userform: FormGroup;
                   submitted: boolean;
-                  genders: SelectItem[];
+                  marcas: SelectItem[];
+                  coches: SelectItem[];
                   description: string;
               
-                  constructor(private fb: FormBuilder, private messageService: MessageService) &quot;&#123;}
+                  constructor(private fb: FormBuilder, private messageService: MessageService) &#123;}
               
-                  ngOnInit() &quot;&#123;
-                    this.userform = this.fb.group(&quot;&#123;
-                        &apos;firstname&apos;: new FormControl(&apos;&apos;, Validators.required),
-                        &apos;lastname&apos;: new FormControl(&apos;&apos;, Validators.required),
-                        &apos;password&apos;: new FormControl(&apos;&apos;, Validators.compose([Validators.required, Validators.minLength(6)])),
-                        &apos;description&apos;: new FormControl(&apos;&apos;),
-                        &apos;gender&apos;: new FormControl(&apos;&apos;, Validators.required)
+                  ngOnInit() &#123;
+                    this.userform = this.fb.group(&#123;
+                        &apos;texto&apos;: new FormControl(&apos;&apos;,  Validators.compose([Validators.required, Validators.minLength(6)])),
+                        &apos;fecha&apos;: new FormControl(&apos;&apos;, Validators.required),
+                        &apos;marca&apos;: new FormControl(&apos;&apos;, Validators.required),
+                        &apos;coche&apos;: new FormControl(&apos;&apos;, Validators.required)
                     });
-              
-                    this.genders = [];
-                    this.genders.push(&quot;&#123;label:&apos;Select Gender&apos;, value:&apos;&apos;});
-                    this.genders.push(&quot;&#123;label:&apos;Male&apos;, value:&apos;Male&apos;});
-                    this.genders.push(&quot;&#123;label:&apos;Female&apos;, value:&apos;Female&apos;});
+                    this.userform.controls[&apos;fecha&apos;].setValue(new Date());
+                    this.marcas = [];
+                    this.marcas.push(&#123;label:&apos;Select marca&apos;, value:&apos;&apos;});
+                    this.marcas.push(&#123;label:&apos;Magda&apos;, value:&apos;Magda&apos;});
+                    this.marcas.push(&#123;label:&apos;Ford&apos;, value:&apos;Ford&apos;});
+                    this.coches=[];
+                    this.userform.controls[&apos;marca&apos;].valueChanges.subscribe((value) =&gt; &#123;
+                      console.log(value);
+                      this.coches.length=0;
+                      this.coches.push(&#123;label:&apos;Select coche&apos;, value:&apos;&apos;});
+                      if(value===&apos;Magda&apos;)&#123;
+                          this.coches.push(&#123;label:&apos;Cx-3&apos;, value:&apos;Cx-3&apos;});
+                          this.coches.push(&#123;label:&apos;Cx-5&apos;, value:&apos;Cx-5&apos;});
+                      }else&#123;
+                          this.coches.push(&#123;label:&apos;focus&apos;, value:&apos;focus&apos;});
+                          this.coches.push(&#123;label:&apos;mondeo&apos;, value:&apos;mondeo&apos;});
+                      }
+                      this.userform.controls[&apos;coche&apos;].setValue(&apos;&apos;);
+                    });
                 }
               
-                onSubmit(value: string) &quot;&#123;
+                onSubmit(value: string) &#123;
                     this.submitted = true;
-                    this.messageService.add(&quot;&#123;severity:&apos;info&apos;, summary:&apos;Success&apos;, detail:&apos;Form Submitted&apos;});
+                    this.messageService.add(&#123;severity:&apos;info&apos;, summary:&apos;Success&apos;, detail:&apos;Form Submitted2&apos;});
                 }
               
-                get diagnostic() &quot;&#123; return JSON.stringify(this.userform.value); }
+                get diagnostic() &#123; return JSON.stringify(this.userform.value); }
               
-              }
+              }              
           </code>
         </pre>
         </p-tabPanel>

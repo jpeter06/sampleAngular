@@ -11,24 +11,38 @@ import {MessageService, SelectItem} from 'primeng/api';
 export class FormComponent implements OnInit {
     userform: FormGroup;
     submitted: boolean;
-    genders: SelectItem[];
+    marcas: SelectItem[];
+    coches: SelectItem[];
     description: string;
 
     constructor(private fb: FormBuilder, private messageService: MessageService) {}
 
     ngOnInit() {
       this.userform = this.fb.group({
-          'firstname': new FormControl('', Validators.required),
-          'lastname': new FormControl('', Validators.required),
-          'password': new FormControl('', Validators.compose([Validators.required, Validators.minLength(6)])),
-          'description': new FormControl(''),
-          'gender': new FormControl('', Validators.required)
+          'texto': new FormControl('',  Validators.compose([Validators.required, Validators.minLength(6)])),
+          'fecha': new FormControl('', Validators.required),
+          'marca': new FormControl('', Validators.required),
+          'coche': new FormControl('', Validators.required)
       });
-
-      this.genders = [];
-      this.genders.push({label:'Select Gender', value:''});
-      this.genders.push({label:'Male', value:'Male'});
-      this.genders.push({label:'Female', value:'Female'});
+      this.userform.controls['fecha'].setValue(new Date());
+      this.marcas = [];
+      this.marcas.push({label:'Select marca', value:''});
+      this.marcas.push({label:'Magda', value:'Magda'});
+      this.marcas.push({label:'Ford', value:'Ford'});
+      this.coches=[];
+      this.userform.controls['marca'].valueChanges.subscribe((value) => {
+        console.log(value);
+        this.coches.length=0;
+        this.coches.push({label:'Select coche', value:''});
+        if(value==='Magda'){
+            this.coches.push({label:'Cx-3', value:'Cx-3'});
+            this.coches.push({label:'Cx-5', value:'Cx-5'});
+        }else{
+            this.coches.push({label:'focus', value:'focus'});
+            this.coches.push({label:'mondeo', value:'mondeo'});
+        }
+        this.userform.controls['coche'].setValue('');
+      });
   }
 
   onSubmit(value: string) {
