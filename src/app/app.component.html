@@ -1,4 +1,8 @@
 <app-nav></app-nav>
+
+  <p-progressSpinner [style.visibility]="HTTPActivity" 
+    [style]="{width: '44px', height: '44px', position:'absolute',top:'11px',right:'11px'}" 
+    strokeWidth="6"></p-progressSpinner>
 <section>
   <router-outlet></router-outlet>
 </section>

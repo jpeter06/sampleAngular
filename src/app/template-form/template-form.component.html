@@ -1,9 +1,9 @@
-<h2>Reactive Form</h2>
+<h2>Template Form</h2>
 <p-tabView>
     <p-tabPanel header="ejemplo">
       <p-toast [style]="{marginTop: '80px'}"></p-toast>
 
-      <form  #f="ngForm" (ngSubmit)="onSubmit()">
+      <form  #f="ngForm" (ngSubmit)="onSubmit(f)">
           <p-panel header="Validate">
               <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
                   <div class="ui-grid-row">
@@ -11,7 +11,7 @@
                           Texto *:
                       </div>
                       <div class="ui-grid-col-6">
-                          <input pInputText type="text" [(ngModel)]="formulario.texto" required ngModel
+                          <input pInputText type="text" [(ngModel)]="formulario.texto" required 
                             placeholder="Required" name="texto" pInputText/>
                       </div>
                       <div class="ui-grid-col-4">
@@ -22,7 +22,7 @@
                           Fecha *:
                       </div>
                       <div class="ui-grid-col-6">
-                          <p-calendar  [(ngModel)]="formulario.fecha" required ngModel name="fecha"></p-calendar>
+                          <p-calendar  [(ngModel)]="formulario.fecha" required  name="fecha"></p-calendar>
                       </div>
                       <div class="ui-grid-col-4">
                       </div>
@@ -32,8 +32,8 @@
                           marca *:
                       </div>
                       <div class="ui-grid-col-6">
-                          <p-dropdown [options]="marcas" name="marca"
-                             [(ngModel)]="formulario.marca" [autoWidth]="false"  required ngModel
+                          <p-dropdown [options]="marcas" name="marca" 
+                             [(ngModel)]="formulario.marca" [autoWidth]="false"  required 
                           class="ng-tns-c9-93 ui-inputwrapper-filled ng-untouched ng-pristine ng-invalid"></p-dropdown>
                       </div>
                       <div class="ui-grid-col-4">
@@ -44,7 +44,7 @@
                           coche *:
                       </div>
                       <div class="ui-grid-col-6">
-                          <p-dropdown [options]="coches" name="coche"  required ngModel
+                          <p-dropdown [options]="coches" name="coche"  required 
                            [(ngModel)]="formulario.coche" [autoWidth]="false"
                           class="ng-tns-c9-93 ui-inputwrapper-filled ng-untouched ng-pristine ng-invalid"></p-dropdown>
                       </div>

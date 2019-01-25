@@ -11,18 +11,16 @@ import { DataService } from '../data.service';
 })
 export class HomeComponent implements OnInit {
 
-  h1Style:boolean=false;
-  users: Object;
+
 
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.dataService.getUsers().subscribe(data => {
-      this.users = data
-    });
+
   }
 
-  firstClick(){
-    this.h1Style=!this.h1Style;
+  download(){
+    window.location.href = 'data:text/csv;charset=UTF-8,'
+                            + encodeURIComponent("TExto :-)");
   }
 }
