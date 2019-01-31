@@ -1,0 +1,34 @@
+
+<h2>PrimeTable2</h2>
+    <button style="margin-bottom: 8px;" pButton label="crear" icon="pi pi-plus" (click)="addUser()"></button>
+		<p-table *ngIf="users" [value]="users.data" (onRowSelect)="onRowSelect($event)"
+		selectionMode="single" [(selection)]="selUser" dataKey="id">
+			<ng-template pTemplate="header">
+				<tr>
+          <th *ngFor="let col of columns">
+            {{col.header}}
+          </th>
+          <th style="width:4em"></th>
+				</tr>
+			</ng-template>
+			<ng-template pTemplate="body" let-user>
+				<tr [pSelectableRow]="user" (dblclick)="showUser(user)">
+          <td *ngFor="let col of columns">
+            {{user[col.field]}}
+          </td>
+          <td>
+            <button pButton icon="pi pi-trash" (click)="confirmDelete(user)"></button>
+          </td>
+				</tr>
+			</ng-template>
+				<ng-template pTemplate="summary">
+					<div style="text-align: left">
+						Selected user: {{selUser ? selUser.id + ' - ' +
+				        selUser.first_name + ' - ' + selUser.last_name :
+						'none'}}
+					</div>
+				</ng-template>
+		</p-table>
+
+
+

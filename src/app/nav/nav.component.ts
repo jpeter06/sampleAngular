@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MenuItem} from 'primeng/api';
 
 @Component({
   selector: 'app-nav',
@@ -8,9 +9,28 @@ import { Component, OnInit } from '@angular/core';
 export class NavComponent implements OnInit {
 
   appTitle: String ='myApp';
+  items: MenuItem[];
+
   constructor() { }
 
+  //LOGIN HOME PRIMETABLE R.FORM T.FORM TEMPLATE ABOUT
   ngOnInit() {
+    this.items = [
+      {  label: 'LOGIN', routerLink:'/login'},
+      {  label: 'HOME', routerLink:'/'},
+      {  label: 'TABLAS', 
+        items: [
+          {  label: 'PRIMETABLE', routerLink:'/primetable'},
+          {  label: 'PRIMETABLE2', routerLink:'/primetable2'}
+    
+        ]},
+      {  label: "FORMULARIOS",
+          items: [
+            {  label: 'R.FORM', routerLink:'/form'},
+            {  label: 'T.FORM', routerLink:'/templateForm'}]},
+      {  label: 'TEMPLATE', routerLink:'/template'},
+      {  label: 'ABOUT', routerLink:'/about'},
+  ];
   }
 
 }

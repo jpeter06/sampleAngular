@@ -4,11 +4,12 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve -o` for a dev server. Will open in the browser the page `http://localhost:4200/`.
 
-## Code scaffolding
+## Run the sseServer example
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `node .\sseServer\sseServer.js` . Will start a server sending events from the direction `http://localhost:4202/events`.
+
 
 ## Build
 

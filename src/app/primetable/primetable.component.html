@@ -2,7 +2,6 @@
 <h2>PrimeTable</h2>
 <p-tabView>
     <p-tabPanel header="ejemplo">
-		<p-growl [(value)]="msgs"></p-growl>
 		<p-table *ngIf="users" [value]="users.data" (onRowSelect)="onRowSelect($event)"
 		selectionMode="single" [(selection)]="selUser" dataKey="id">
 			<ng-template pTemplate="header">

@@ -3,7 +3,9 @@
 
 body,html{
     height: 100%;
-    margin: 0 auto;
+    width:100%;
+    margin: 0;
+    padding:0;
 }
 
 body {
@@ -18,7 +20,7 @@ a {
 .container {
     width: 80%;
     margin:0 auto;
-    padding: 1.3em;
+    padding: 0.4em;
     display:grid;
     grid-template-columns:30% auto;
 }
@@ -29,7 +31,34 @@ a {
 
 section {
     width: 80%;
-    margin: 0 auto;
-    padding: 2em;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    position:relative;
+    overflow-x:hidden;
+    background:#fafafa;
 }
 
+router-outlet ~ * {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border: 10px solid transparent;
+  }
+
+  /***** PRIMENG ****/
+  body header .ui-menubar {
+    background-color: transparent;
+    color: white;
+    border: none;
+}
+
+body .ui-menubar .ui-menuitem-link { color:white}
+body .ui-menubar .ui-menuitem-link:hover { background-color:#1b88de; }
+body .ui-menubar .ui-submenu-list { background-color:#007ad9; border:none; }
+body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link{ background-color: #1b88de;}
+body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link .ui-submenu-icon{ color: inherit;}
+body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link .ui-menuitem-text{ color: white;}
+
+body .ui-menubar .ui-menuitem-link .ui-menuitem-text{    color: #f5f4f4;}
+body .ui-menubar .ui-menuitem-link:hover .ui-menuitem-text{   color: #f5f4f4;}

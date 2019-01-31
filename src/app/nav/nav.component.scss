@@ -1,10 +1,12 @@
 $background: #007ad9;
 $background2:  #229eff;
+
 header {
     background: $background;
 
     .logo {
         font-weight: bold;
+        margin-top: 0.5em;
     }
 
     nav {

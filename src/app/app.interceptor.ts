@@ -36,7 +36,7 @@ export class HTTPListener implements HttpInterceptor {
           map(event => {
             return event;
           }),
-          catchError(error => {
+          catchError(error => { console.log("error en interceptor")
             return Observable.throw(error);
           }),
           finalize(() => {
