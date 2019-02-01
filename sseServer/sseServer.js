@@ -1,7 +1,14 @@
 var express = require('express');
+var cors = require('cors');
+const bodyParser = require('body-parser');
 var fs = require("fs");
 
 var app = express();
+app.use(cors())
+app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
+
+var users=null;
 
 var template = ' \
 <!DOCTYPE html> <html> <body> \
@@ -16,21 +23,55 @@ app.get('/', function (req, res) {
 	res.send(template); // <- Return the static template above
 });
 
-app.get('/api/users', function (req, res) {
-   fs.readFile( __dirname + "/data/" + "users.json", 'utf8', function (err, data) {
-      console.log( data );
+function addHeader(res){
 	res.writeHead(200, {
 		'Content-Type': 'application/json; charset=utf-8', 
 		'Cache-Control': 'no-cache',
 		'Connection': 'keep-alive',
 		'Access-Control-Allow-Origin':'*',
-	    'Access-Control-Allow-Methods': 'GET'
+	    'Access-Control-Allow-Methods': 'POST, GET, PUT, DELETE, OPTIONS'
 	});
-      res.end( data );
-   });
+}
+
+function getUsers(){
+	if(users==null){
+		let str=fs.readFileSync( __dirname + "/data/" + "users.json", 'utf8');
+		users=JSON.parse(str);
+	}
+	return users;
+}
+
+app.delete('/api/users/:id', function(req,res){
+	var id = req.params.id;
+	console.log("delete id:",id);
+	getUsers().data=getUsers().data.filter(function(user){ return user.id!=id;   });
+	res.end();
 })
 
-var clientId = 0;
+app.put('/api/users', function(req,res){
+	let user=req.body;
+	console.log("put:",user);
+	let itemIndex = getUsers()['data'].findIndex(item => item.id == user.id);
+	getUsers()['data'][itemIndex]=user;
+	res.json(user);
+})
+
+app.post('/api/users', function(req,res){
+	let user=req.body;
+	console.log("req.body:",req.body);
+	getUsers().data.push(user);
+	res.json(user);
+})
+
+app.get('/api/users', function (req, res) {
+	let data=JSON.stringify(getUsers());
+	//addHeader(res);
+	res.end( data );
+	console.log("end get users");
+ })
+ 
+ 
+ var clientId = 0;
 var clients = {}; // <- Keep a map of attached clients
 
 // Called once for each new client. Note, this response is left open!

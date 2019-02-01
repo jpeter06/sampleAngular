@@ -1,19 +1,46 @@
 import { Injectable } from '@angular/core';
-import { HttpClient , HttpErrorResponse} from '@angular/common/http';
+import { HttpClient, HttpHeaders , HttpErrorResponse} from '@angular/common/http';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators'; 
 
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json'
+  })
+};
 @Injectable({
   providedIn: 'root'
 })
 
 export class DataService {
   color:string='pataa';
+  //url:string='https://reqres.in';
+  url:string='http://localhost:4202';
   constructor(private http: HttpClient) { }
 
-  getUsers() {
-    //return this.http.get('https://reqres.in/api/users')   
-   return this.http.get('http://localhost:4202/api/users')   
+  updateUser(user) {  
+    console.log("called updateUser"); 
+   return this.http.put(this.url+'/api/users',user, httpOptions)   
+    .pipe(     catchError(this.handleError)    )
+    .subscribe();
+  }
+
+  addUser(user) {  
+    console.log("called addUser"); 
+   return this.http.post(this.url+'/api/users',user, httpOptions)   
+    .pipe(     catchError(this.handleError)    )
+    .subscribe();
+  }
+
+  deleteUser(user) {  
+    console.log("called deleteUser"); 
+   return this.http.delete(this.url+'/api/users/'+user.id, httpOptions)   
+    .pipe(     catchError(this.handleError)    )
+    .subscribe();
+  }
+
+  getUsers() {  
+   return this.http.get(this.url+'/api/users')   
     .pipe(     catchError(this.handleError)    );
   }
 

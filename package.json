@@ -36,7 +36,9 @@
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~10.12.20",
+    "body-parser": "^1.18.3",
     "codelyzer": "~4.5.0",
+    "cors": "^2.8.5",
     "express": "^4.16.4",
     "jasmine-core": "~3.3.0",
     "jasmine-spec-reporter": "~4.2.1",
@@ -49,6 +51,6 @@
     "protractor": "~5.4.0",
     "ts-node": "~8.0.2",
     "tslint": "~5.12.1",
-    "typescript": "~3.2.4"
+    "typescript": "^3.1.6"
   }
 }

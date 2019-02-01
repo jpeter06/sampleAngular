@@ -52,20 +52,24 @@ export class Primetable2Component implements OnInit {
           message: '¿Quiere eliminar este usuario?',
           accept: () => {
              self.users['data'] = self.users['data'].filter(function(user){ return user.id!=delUser.id;   });
+             self.data.deleteUser(delUser);
           }
       });
     }
 
     addUser(){
+      let self=this;
       const reducer = (ac, cv) => ac.id > cv.id? ac:cv;
       const newId=this.users['data'].reduce(reducer,{id:1})['id'] +1;
       console.log("newId:"+newId);
       const ref = this.dialogService.open(UserFormComponent, 
-        { header: 'Crear usuario',  width: '450px', data:{id:newId, first_name:'', last_name:''}  });
+        { header: 'Crear usuario',  width: '450px',
+           data:{id:newId, first_name:'', last_name:''}  });
       ref.onClose.subscribe((user) => {
           if (user) {
-            console.log(user);
-            this.users['data'].push(user);
+            console.log("adding:",user);
+            self.users['data'].push(user);
+            self.data.addUser(user);
           }
       });
     }
@@ -78,6 +82,7 @@ export class Primetable2Component implements OnInit {
           if (user) {
             let itemIndex = this.users['data'].findIndex(item => item.id == user.id);
             this.users['data'][itemIndex]=user;
+            this.data.updateUser(user);
             }
       });
     }
