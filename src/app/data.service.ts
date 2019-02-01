@@ -15,32 +15,32 @@ const httpOptions = {
 export class DataService {
   color:string='pataa';
   //url:string='https://reqres.in';
-  url:string='http://localhost:4202';
+  baseUrl:string='http://localhost:4202';
   constructor(private http: HttpClient) { }
 
   updateUser(user) {  
     console.log("called updateUser"); 
-   return this.http.put(this.url+'/api/users',user, httpOptions)   
+   return this.http.put(this.baseUrl+'/api/users',user, httpOptions)   
     .pipe(     catchError(this.handleError)    )
     .subscribe();
   }
 
   addUser(user) {  
     console.log("called addUser"); 
-   return this.http.post(this.url+'/api/users',user, httpOptions)   
+   return this.http.post(this.baseUrl+'/api/users',user, httpOptions)   
     .pipe(     catchError(this.handleError)    )
     .subscribe();
   }
 
   deleteUser(user) {  
     console.log("called deleteUser"); 
-   return this.http.delete(this.url+'/api/users/'+user.id, httpOptions)   
+   return this.http.delete(this.baseUrl+'/api/users/'+user.id, httpOptions)   
     .pipe(     catchError(this.handleError)    )
     .subscribe();
   }
 
   getUsers() {  
-   return this.http.get(this.url+'/api/users')   
+   return this.http.get(this.baseUrl+'/api/users')   
     .pipe(     catchError(this.handleError)    );
   }
 

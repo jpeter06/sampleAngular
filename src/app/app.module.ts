@@ -32,6 +32,7 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {MenubarModule} from 'primeng/menubar';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {DynamicDialogModule} from 'primeng/dynamicdialog';
+import {TooltipModule} from 'primeng/tooltip';
 
 import {MessageService, DialogService} from 'primeng/api';
 import {ConfirmationService} from 'primeng/api';
@@ -83,6 +84,7 @@ const RxJS_Services = [HTTPListener, HTTPStatus];
     MenubarModule,
     ConfirmDialogModule,
     DynamicDialogModule,
+    TooltipModule,
     BrowserAnimationsModule
   ],
   providers: [

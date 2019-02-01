@@ -62,3 +62,8 @@ body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link .ui-menuite
 
 body .ui-menubar .ui-menuitem-link .ui-menuitem-text{    color: #f5f4f4;}
 body .ui-menubar .ui-menuitem-link:hover .ui-menuitem-text{   color: #f5f4f4;}
+
+/** Forms tooltips errors */
+
+.tooltip-error.ui-tooltip   .ui-tooltip-text {background: red!important; color:white;} 
+.tooltip-error.ui-tooltip .ui-tooltip-arrow  {color: red !important; border-right-color: red!important;} 

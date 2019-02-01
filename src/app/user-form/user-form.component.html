@@ -5,7 +5,9 @@
                   Nombre *:
               </div>
               <div class="ui-grid-col-9">
-                  <input pInputText type="text" formControlName="first_name" placeholder="Required" pInputText/>
+                  <input pInputText type="text" formControlName="first_name"
+                   placeholder="Required" pTooltip="Nombre es requerido" tooltipStyleClass="tooltip-error"
+                   [tooltipDisabled]="userform.controls['first_name'].valid || !userform.controls['first_name'].dirty" />
               </div>
           </div>
           <div class="ui-grid-row">
@@ -13,7 +15,9 @@
                   Apellido *:
               </div>
               <div class="ui-grid-col-9">
-                <input pInputText type="text" formControlName="last_name" placeholder="Required" pInputText/>
+                <input pInputText type="text" formControlName="last_name" placeholder="Required" 
+                    pTooltip="Apellido es requerido" tooltipStyleClass="tooltip-error"	
+                    [tooltipDisabled]="userform.controls['last_name'].valid || !userform.controls['last_name'].dirty" />
               </div>
 
           </div>

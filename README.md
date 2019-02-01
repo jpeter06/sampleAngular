@@ -5,6 +5,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Development server
 
 Run `ng serve -o` for a dev server. Will open in the browser the page `http://localhost:4200/`.
+If you find problems of incompatibility between Angular CLI  y Typescript:
+* ng update --all --force
+* npm install typescript@">=3.1.1 <3.3.0"
 
 ## Run the sseServer example
 
