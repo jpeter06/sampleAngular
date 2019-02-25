@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Validators,FormControl,FormGroup,FormBuilder} from '@angular/forms';
 import {MessageService, SelectItem} from 'primeng/api';
+import {horaValidator} from '../validations/validator'
 
 @Component({
   selector: 'app-form',
@@ -19,9 +20,11 @@ export class FormComponent implements OnInit {
 
     ngOnInit() {
       this.userform = this.fb.group({
-          'texto': new FormControl('',  Validators.compose([Validators.required, Validators.minLength(6)])),
+          'texto': new FormControl('',  Validators.compose([Validators.required,
+             Validators.minLength(5),,
+             horaValidator()])),
           'fecha': new FormControl('', Validators.required),
-          'marca': new FormControl('', Validators.required),
+          'marca': new FormControl('', [Validators.required]),
           'coche': new FormControl('', Validators.required)
       });
       this.userform.controls['fecha'].setValue(new Date());

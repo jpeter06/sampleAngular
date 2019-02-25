@@ -65,5 +65,10 @@ body .ui-menubar .ui-menuitem-link:hover .ui-menuitem-text{   color: #f5f4f4;}
 
 /** Forms tooltips errors */
 
-.tooltip-error.ui-tooltip   .ui-tooltip-text {background: red!important; color:white;} 
-.tooltip-error.ui-tooltip .ui-tooltip-arrow  {color: red !important; border-right-color: red!important;} 
+.tooltip-error.ui-tooltip   .ui-tooltip-text {background: #c00000!important; color:white;} 
+.tooltip-error.ui-tooltip .ui-tooltip-arrow  {color: #c00000 !important; border-right-color: red!important;} 
+
+body .ui-inputtext:enabled:focus:not(.ng-pristine):not(.ng-valid),
+body .ui-inputtext:enabled:hover:not(.ng-pristine):not(.ng-valid) {
+    border-color: #c00000;
+}

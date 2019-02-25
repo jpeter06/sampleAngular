@@ -14,7 +14,7 @@ import { FormComponent } from './form/form.component';
 import { TemplateComponent } from './template/template.component';
 import { TemplateFormComponent } from './template-form/template-form.component';
 import { AuthenticationModule } from './authentication/authentication.module';
-import { XxxModule } from './xxx/xxx.module';
+//import { XxxModule } from './xxx/xxx.module';
 
 //PrimeNG
 import { TableModule } from 'primeng/table';
@@ -68,7 +68,7 @@ const RxJS_Services = [HTTPListener, HTTPStatus];
     ReactiveFormsModule,
     FormsModule,
     AuthenticationModule,
-    XxxModule,
+    //XxxModule,
     TableModule,
     GrowlModule,
     TabViewModule,

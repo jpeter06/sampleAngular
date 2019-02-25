@@ -17,7 +17,7 @@ export class NavComponent implements OnInit {
   ngOnInit() {
     this.items = [
       {  label: 'LOGIN', routerLink:'/login'},
-      {  label: 'HOME', routerLink:'/'},
+      {  label: 'HOME', routerLink:'/home'},
       {  label: 'TABLAS', 
         items: [
           {  label: 'PRIMETABLE', routerLink:'/primetable'},
@@ -30,6 +30,7 @@ export class NavComponent implements OnInit {
             {  label: 'T.FORM', routerLink:'/templateForm'}]},
       {  label: 'TEMPLATE', routerLink:'/template'},
       {  label: 'ABOUT', routerLink:'/about'},
+      {  label: 'lazy', routerLink:'/lazy'},
   ];
   }
 

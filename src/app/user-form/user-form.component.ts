@@ -23,7 +23,8 @@ export class UserFormComponent implements OnInit {
       console.log("data:",this.config.data);
       this.userform = this.fb.group({
           'id': new FormControl(this.config.data.id),
-          'first_name': new FormControl(this.config.data.first_name, Validators.required),
+          'first_name': new FormControl(this.config.data.first_name, Validators.compose([Validators.required,
+                                                                                       Validators.minLength(3)])),
           'last_name': new FormControl(this.config.data.last_name, Validators.required)
       });
   }

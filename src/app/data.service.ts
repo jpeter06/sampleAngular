@@ -14,10 +14,15 @@ const httpOptions = {
 
 export class DataService {
   color:string='pataa';
-  //url:string='https://reqres.in';
+  externUrl:string='https://reqres.in';
   baseUrl:string='http://localhost:4202';
   constructor(private http: HttpClient) { }
 
+  getUsersReqres() {  
+    return this.http.get(this.externUrl+'/api/users')   
+   }
+ 
+ 
   updateUser(user) {  
     console.log("called updateUser"); 
    return this.http.put(this.baseUrl+'/api/users',user, httpOptions)   
@@ -41,7 +46,7 @@ export class DataService {
 
   getUsers() {  
    return this.http.get(this.baseUrl+'/api/users')   
-    .pipe(     catchError(this.handleError)    );
+   // .pipe(     catchError(this.handleError)    );
   }
 
   private handleError(error: HttpErrorResponse) {

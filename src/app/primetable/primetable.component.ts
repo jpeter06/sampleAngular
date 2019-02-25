@@ -31,7 +31,7 @@ export class PrimetableComponent implements OnInit {
   
     realizarPeticion() {
       let self=this;
-      this.data.getUsers().subscribe({
+      this.data.getUsersReqres().subscribe({
         next(data) { console.log("peticion recibida (next)");
         console.log(data);
               self.users = data; },
