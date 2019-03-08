@@ -31,6 +31,7 @@ export class NavComponent implements OnInit {
       {  label: 'TEMPLATE', routerLink:'/template'},
       {  label: 'ABOUT', routerLink:'/about'},
       {  label: 'lazy', routerLink:'/lazy'},
+      {  label: 'comp2', routerLink:'/lazy/comp2'},
   ];
   }
 
